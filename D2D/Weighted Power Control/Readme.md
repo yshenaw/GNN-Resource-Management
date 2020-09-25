@@ -1,0 +1,1 @@
+Sample Code to for "Graph Neural Networks for Scalable Radio Resource Management: Architecture Design and Theoretical Analysis" Section V.B.
