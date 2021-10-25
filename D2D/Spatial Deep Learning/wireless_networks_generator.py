@@ -15,7 +15,7 @@
 # }
 
 import numpy as np
-import general_parameters
+#import general_parameters
 import helper_functions
 
 def generate_layouts(general_para, number_of_layouts):
@@ -54,23 +54,3 @@ def compute_path_losses(general_para, distances):
     pathlosses = -Tx_over_Rx + np.eye(N) * antenna_gain_decibel  # only add antenna gain for direct channel
     pathlosses = np.power(10, (pathlosses / 10))  # convert from decibel to absolute
     return pathlosses
-
-
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('--number', help='number of testing layouts to generate', type=int, required=True)
-    args = parser.parse_args()
-
-    n_layouts = args.number
-    if(n_layouts<=0):
-        print("Nothing to do for generating 0 or less layouts. Exiting...")
-        exit(0)
-    general_para = general_parameters.parameters()
-
-    layouts, dists = generate_layouts(general_para, n_layouts)
-    path_losses = compute_path_losses(general_para, dists)
-    print("Stats of generated path losses: mean: {}; std: {}".format(np.mean(path_losses), np.std(path_losses)))
-    np.save("../Data/layouts_{}.npy".format(general_para.setting_str), layouts)
-    np.save("../Data/path_losses_{}.npy".format(general_para.setting_str), path_losses)
-    print("Generator Function Completed Successfully!")
