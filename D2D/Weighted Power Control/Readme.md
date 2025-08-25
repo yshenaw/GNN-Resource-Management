@@ -1,1 +1,1 @@
-Sample Code to for "Graph Neural Networks for Scalable Radio Resource Management: Architecture Design and Theoretical Analysis" Section V.B.
+Sample Code to for "Graph Neural Networks for Scalable Radio Resource Management: Architecture Design and Theoretical Analysis" Section V.B. Please run main.ipynb instead of main.py; main.py considers an interesting setting that only direct CSI is estimated while interference CSI is not (we use distance for interference link). 
